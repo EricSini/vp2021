@@ -21,16 +21,16 @@
 	$photo_dir = "Photos/";
 	$allowed_photo_types = ["image/jpeg", "image/png"];
 	$all_files = array_slice(scandir($photo_dir), 2);
-	/photo_files = [];
-	foreach($all_files as $file)
+	$photo_files = [];
+	foreach($all_files as $file){
 		$file_info = getimagesize($photo_dir .$file);
 		if(isset($file_info["mime"])){
-		    if(in_array ($file_info["mime"], $allowed_photo_types)){
+		    if(in_array($file_info["mime"], $allowed_photo_types)){
 				array_push($photo_files, $file);
 			}	
 		}
 	}
-	var_dump($photo_files);
+	//var_dump($photo_files);
 	//$all_files = scandir ($photo_dir);
     //echo $all_files;
     //var_dump($all_files);
